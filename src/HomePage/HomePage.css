@@ -70,3 +70,49 @@
   width: 17px;
   height: 17px;
 }
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 28px;
+  height: 395px;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../../assets/images/keyboards-images/lukas-B8tc3Tq0GK8-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 16px;
+}
+.hero-section-title {
+  width: 287px;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+}
+.hero-section-description {
+  width: 287px;
+  font-size: 16px;
+  text-align: center;
+  color: #A6A6A6;
+}
+.pill-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 224px;
+  height: 40px;
+  border-radius: 50px;
+  border: 1px solid #8347EB;
+  background-color: rgba(131, 71, 235, 0.2);
+}
+.pill-text {
+  font-weight: bold;
+  font-size: 13px;
+}
+.see-all-text {
+  font-size: 14px;
+  font-weight: bold;
+}
