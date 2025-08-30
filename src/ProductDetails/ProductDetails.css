@@ -1,0 +1,20 @@
+.body {
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  color: #8347EB;
+  background-color: #101318;
+}
+.go-back-button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  padding: 12px;
+}
+.go-back-button-text {
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #8347EB;
+}
