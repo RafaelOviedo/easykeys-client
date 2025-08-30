@@ -1,22 +1,46 @@
 .body {
+  align-items: center;
   padding: 0;
   margin: 0;
   color: #8347EB;
   background-color: #101318;
 }
 
-.go-gack-button-container {
+.go-back-button-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 34px;
-  border: 1px solid #2B303B;
+  height: 30px;
   padding: 12px;
 }
 
-.go-gack-button-text {
+.go-back-button-text {
   font-size: 16px;
   font-weight: bold;
   text-decoration: none;
   color: #8347EB;
+}
+
+.our-keyboards-title-container {
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+}
+
+.our-keyboards-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.search-filter-container {
+  display: flex;
+  justify-content: center;
+  height: 160px;
+}
+.search-filter-box {
+  width: 80%;
+  height: 100%;
+  background-color: #171B26;
+  border-radius: 12px;
 }
