@@ -5,7 +5,7 @@ export class Navbar extends HTMLElement {
       <nav class="navbar">
         <div class="logo-container">
           <img class="keyboard-image" src="../../assets/images/keyboard-image.png" />
-          <span class="logo-text">EasyKeys</span>
+          <a class="logo-text" href="../HomePage/HomePage.html">EasyKeys</a>
         </div>
 
         <div class="navbar-buttons-container">
