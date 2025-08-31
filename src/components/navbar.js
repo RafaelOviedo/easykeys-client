@@ -22,4 +22,5 @@ export class Navbar extends HTMLElement {
       </nav>`;
   }
 }
+
 customElements.define("ek-navbar", Navbar);
