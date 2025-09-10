@@ -16,7 +16,7 @@ export class ProductCard extends HTMLElement {
           <img class="product-component-image" src=${imageSrc} />
         </div>
         <div class="product-component-content">
-          <a class="product-title" href="../ProductDetails/ProductDetails.html">${title}</a>
+          <a class="product-title" href="../../src/ProductDetails/ProductDetails.html">${title}</a>
           <p class="product-description">${description}</p>
           <div class="rating-container">
             <div class="stars-container">

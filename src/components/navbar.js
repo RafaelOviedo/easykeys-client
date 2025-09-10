@@ -5,7 +5,7 @@ export class Navbar extends HTMLElement {
       <nav class="navbar">
         <div class="logo-container">
           <img class="keyboard-image" src="../../assets/images/keyboard-image.png" />
-          <a class="logo-text" href="../HomePage/HomePage.html">EasyKeys</a>
+          <a class="logo-text" href="../../index.html">EasyKeys</a>
         </div>
 
         <div class="navbar-buttons-container">
@@ -15,7 +15,7 @@ export class Navbar extends HTMLElement {
             <div class="burger-line"></div>
           </div>
 
-          <a class="cart-container" href="../CartPage/CartPage.html">
+          <a class="cart-container" href="../../src/CartPage/CartPage.html">
             <img class="cart-image" src="../../assets/images/icon-cart.png" />
           </a>
         </div>
