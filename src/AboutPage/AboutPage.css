@@ -1,0 +1,45 @@
+.body {
+  padding: 0;
+  margin: 0;
+  color: #8347EB;
+  background-color: #101318;
+}
+
+.go-back-button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  padding: 12px;
+}
+
+.go-back-button-text {
+  font-size: 16px;
+  text-decoration: none;
+  color: #A6A6A6;
+}
+
+.about-title-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+}
+.about-title {
+  font-size: 32px;
+  color: #FFF;
+  font-weight: bold;
+  margin: 0;
+}
+
+@media screen and (width > 754px) {
+}
+
+@media screen and (width > 1024px) {
+}
+
+@media screen and (width > 1365px) {
+}
+
+@media screen and (width > 1440px) {
+}
