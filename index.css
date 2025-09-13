@@ -166,16 +166,58 @@
   color: #FFF;
 }
 
+/********    DESKTOP    ********/
+
 @media screen and (width > 754px) {
+  .hero-section-title {
+    width: 400px;
+  }
+  .hero-section-description {
+    width: 400px;
+  }
+
   .product-cards-container {
     justify-content: flex-start;
   }
   .product-card-component {
     width: 320px;
   }
+
+  .pill-component {
+    width: 280px;
+    height: 50px;
+  }
+  .pill-text {
+    font-size: 16px;
+  }
+  .see-all-text {
+    font-size: 18px;
+  }
 }
 
 @media screen and (width > 1024px) {
-
+  .hero-section {
+    height: 450px;
+  }
+  .hero-section-title {
+    width: 500px;
+    font-size: 35px;
+  }
+  .hero-section-description {
+    width: 500px;
+    font-size: 20px;
+  }
+  .product-cards-container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
 }
 
+@media screen and (width > 1365px) {
+  .results-title-container {
+    justify-content: center;
+  }
+  .product-cards-container {
+    justify-content: center;
+  }
+}

@@ -107,7 +107,7 @@ body {
   height: 150px;
 }
 .navbar-option {
-  color: #8347EB;
+  color: #A6A6A6;
   font-weight: bold;
   text-decoration: none;
 }
@@ -133,12 +133,20 @@ body {
 .footer {
   display: flex;
   flex-direction: column;
-  height: 476px;
+  height: 500px;
   margin-top: 20px;
   border-top: 1px solid #2B303B;
   background-color: #171B26;
   gap: 16px;
   padding: 36px 16px;
+}
+
+.brand-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .footer-logo-text {
@@ -156,6 +164,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.footer-lists {
+  height: 370px;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-around;
 }
 
 .products-text {
@@ -199,6 +214,26 @@ body {
 
   .burger-menu-container {
     display: none;
+  }
+
+  .footer {
+    height: 350px;
+  }
+
+  .footer-lists {
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .footer-description {
+    width: 250px;
+    line-height: 25px;
+  }
+  .category-text {
+    width: 150px;
   }
 }
 
