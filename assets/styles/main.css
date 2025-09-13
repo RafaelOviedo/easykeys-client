@@ -205,6 +205,10 @@ body {
 
 
 @media screen and (width > 754px) {
+  .navbar {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
   .navbar-options-menu-desktop {
     display: flex;
     justify-content: space-evenly;
@@ -239,4 +243,15 @@ body {
 
 
 @media screen and (width > 1024px) {
+  .navbar {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media screen and (width > 1365px) {
+  .navbar {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
 }
