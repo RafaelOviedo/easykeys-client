@@ -8,6 +8,12 @@ export class Navbar extends HTMLElement {
           <a class="logo-text" href="../../index.html">EasyKeys</a>
         </div>
 
+        <div class="navbar-options-menu-desktop">
+          <a class="navbar-option" href="../../index.html">Home</a>
+          <a class="navbar-option" href="../../src/KeyboardsPage/KeyboardsPage.html">Keyboards</a>
+          <a class="navbar-option" href="../../src/AboutPage/AboutPage.html">About us</a>
+        </div>
+
         <div class="navbar-buttons-container">
           <div class="burger-menu-container">
             <div class="burger-line"></div>

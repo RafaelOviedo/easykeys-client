@@ -39,6 +39,9 @@ body {
   text-decoration: none;
   color: #8347EB;
 }
+.navbar-options-menu-desktop {
+  display: none;
+}
 
 .navbar-buttons-container {
   display: flex;
@@ -187,6 +190,16 @@ body {
 
 
 @media screen and (width > 754px) {
+  .navbar-options-menu-desktop {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 40%;
+  }
+
+  .burger-menu-container {
+    display: none;
+  }
 }
 
 
