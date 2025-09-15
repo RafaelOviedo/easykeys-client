@@ -76,9 +76,31 @@ body {
   border-radius: 5px;
   background-color: #101318;
 }
+.cart-container {
+  position: relative;
+}
 .cart-image {
+  position: absolute;
+  bottom: 5px;
+  left: 8px;
   width: 19px;
   height: 19px;
+}
+.cart-quantity-container {
+  position: absolute;
+  bottom: 22px;
+  left: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #E32000;
+}
+.cart-quantity {
+  font-size: 11px;
+  color: #FFFFFF;
 }
 
 .opened-navbar-container {

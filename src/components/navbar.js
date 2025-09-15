@@ -22,7 +22,12 @@ export class Navbar extends HTMLElement {
           </div>
 
           <a class="cart-container" href="../../src/CartPage/CartPage.html">
-            <img class="cart-image" src="../../assets/images/icon-cart.png" />
+            <div class="cart-container">
+              <img class="cart-image" src="../../assets/images/icon-cart.png" />
+              <div class="cart-quantity-container">
+                <span class="cart-quantity">2</span>
+              </div>
+            </div>
           </a>
         </div>
       </nav>`;
