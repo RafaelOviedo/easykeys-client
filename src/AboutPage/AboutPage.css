@@ -96,10 +96,38 @@
 }
 
 @media screen and (width > 1024px) {
+  .about-title {
+    font-size: 36px;
+  }
+  .about-subtitle {
+    width: 50%;
+    font-size: 20px;
+  }
+  .our-mission-container {
+    padding: 30px;
+  }
+  .our-mission-title {
+    font-size: 30px;
+  }
+  .our-mission-text {
+    font-size: 20px;
+  }
+  .our-mission-card {
+    height: 250px;
+  }
+  .mission-info-cards-container {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    padding: 30px;
+  }
 }
 
 @media screen and (width > 1365px) {
 }
 
 @media screen and (width > 1440px) {
+  .about-subtitle {
+    width: 70%;
+    font-size: 20px;
+  }
 }

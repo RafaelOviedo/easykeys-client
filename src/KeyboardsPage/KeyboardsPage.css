@@ -224,6 +224,9 @@
     padding-left: 100px;
     padding-right: 100px;
   }
+  .our-keyboards-title {
+    font-size: 30px;
+  }
   .search-filter-box {
     width: 500px;
   }

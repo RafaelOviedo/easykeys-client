@@ -11,7 +11,7 @@ export class Navbar extends HTMLElement {
         <div class="navbar-options-menu-desktop">
           <a class="navbar-option" href="../../index.html">Home</a>
           <a class="navbar-option" href="../../src/KeyboardsPage/KeyboardsPage.html">Keyboards</a>
-          <a class="navbar-option" href="../../src/AboutPage/AboutPage.html">About us</a>
+          <a class="navbar-option" href="../../src/AboutPage/AboutPage.html">About</a>
         </div>
 
         <div class="navbar-buttons-container">
@@ -56,7 +56,7 @@ export class Navbar extends HTMLElement {
         <div class="navbar-options-menu">
           <a class="navbar-option" href="../../index.html">Home</a>
           <a class="navbar-option" href="../../src/KeyboardsPage/KeyboardsPage.html">Keyboards</a>
-          <a class="navbar-option" href="../../src/AboutPage/AboutPage.html">About us</a>
+          <a class="navbar-option" href="../../src/AboutPage/AboutPage.html">About</a>
         </div>
       </nav>`;
 
