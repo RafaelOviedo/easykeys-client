@@ -9,6 +9,7 @@ export class ProductCard extends HTMLElement {
     const title = this.getAttribute('title');
     const description = this.getAttribute('description');
     const price = this.getAttribute('price');
+    const rating = this.getAttribute('rating');
 
     this.innerHTML = `
       <div class="product-card-component">
@@ -26,7 +27,7 @@ export class ProductCard extends HTMLElement {
               <span>&#9733;</span>
               <span>&#9733;</span>
             </div>
-            <span class="points-text">(4.9)</span>
+            <span class="points-text">(${rating})</span>
           </div>
           <div class="keyboard-specs-container">
             <span><b>Switches:</b> Outemu blue <br> <b>Layout:</b> (42 keys)</span>

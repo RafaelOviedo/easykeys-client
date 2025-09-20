@@ -1,5 +1,5 @@
 
-export async function getKeyboards() {
-  const response = await fetch('../resources/keyboards.json');
+export async function getKeyboards(route) {
+  const response = await fetch(route);
   return await response.json();
 }
