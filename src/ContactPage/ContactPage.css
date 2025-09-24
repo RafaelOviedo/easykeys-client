@@ -1,0 +1,96 @@
+.body {
+  padding: 0;
+  margin: 0;
+  color: #8347EB;
+  background-color: #101318;
+}
+
+.contact-title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+.contact-title {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+}
+.contact-subtitle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px 50px 10px;
+}
+.contact-subtitle {
+  text-align: center;
+  color: #A6A6A6;
+}
+
+.form-get-in-touch-container {
+
+}
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+.contact-form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 350px;
+  border-radius: 12px;
+  padding: 24px;
+  background-color: #171B26;
+}
+.contact-form-title {
+  color: #FFFFFF;
+  font-size: 26px;
+  margin: 0px;
+}
+
+.get-in-touch-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  padding-top: 50px;
+}
+.get-in-touch-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 200px;
+  border-radius: 12px;
+  padding: 24px;
+  background-color: #171B26;
+}
+.get-in-touch-title {
+  color: #FFFFFF;
+  font-size: 26px;
+  margin: 0px;
+}
+
+@media screen and (width > 754px) {
+  .form-get-in-touch-container {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media screen and (width > 1024px) {
+}
+
+@media screen and (width > 1365px) {
+}
+
+@media screen and (width > 1440px) {
+}

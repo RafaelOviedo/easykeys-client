@@ -12,6 +12,7 @@ export class Navbar extends HTMLElement {
           <a class="navbar-option" href="../../index.html">Home</a>
           <a class="navbar-option" href="../../src/KeyboardsPage/KeyboardsPage.html">Keyboards</a>
           <a class="navbar-option" href="../../src/AboutPage/AboutPage.html">About</a>
+          <a class="navbar-option" href="../../src/ContactPage/ContactPage.html">Contact</a>
         </div>
 
         <div class="navbar-buttons-container">
@@ -55,6 +56,7 @@ export class Navbar extends HTMLElement {
           <a class="navbar-option" href="../../index.html">Home</a>
           <a class="navbar-option" href="../../src/KeyboardsPage/KeyboardsPage.html">Keyboards</a>
           <a class="navbar-option" href="../../src/AboutPage/AboutPage.html">About</a>
+          <a class="navbar-option" href="../../src/ContactPage/ContactPage.html">Contact</a>
         </div>
       </nav>`;
 
