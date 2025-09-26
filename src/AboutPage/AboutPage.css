@@ -52,6 +52,7 @@
   margin: 0px;
 }
 .our-mission-text {
+  font-size: 18px;
   color: #A6A6A6;
   text-align: center;
 }
@@ -70,7 +71,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 200px;
+  height: 250px;
   border-radius: 12px;
   padding: 24px;
   background-color: #171B26;
@@ -89,11 +90,24 @@
   margin: 0px;
 }
 .info-card-description {
+  font-size: 18px;
   color: #A6A6A6;
   text-align: center;
 }
 
 @media screen and (width > 754px) {
+  .about-subtitle-container {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .our-mission-container {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .mission-info-cards-container {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 }
 
 @media screen and (width > 1024px) {
@@ -103,9 +117,6 @@
   .about-subtitle {
     width: 50%;
     font-size: 20px;
-  }
-  .our-mission-container {
-    padding: 30px;
   }
   .our-mission-title {
     font-size: 30px;
@@ -119,7 +130,18 @@
   .mission-info-cards-container {
     flex-wrap: nowrap;
     flex-direction: row;
-    padding: 30px;
+  }
+}
+
+@media screen and (width > 1260px) {
+  .our-mission-container {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+
+  .mission-info-cards-container {
+    padding-left: 200px;
+    padding-right: 200px;
   }
 }
 
