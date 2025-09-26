@@ -254,8 +254,8 @@
   gap: 10px;
   background-color: #8347EB;
   border: none;
-  height: 40px;
-  border-radius: 12px;
+  height: 45px;
+  border-radius: 5px;
 }
 .checkout-button-text {
   font-size: 16px;
