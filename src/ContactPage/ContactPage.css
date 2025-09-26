@@ -109,6 +109,26 @@
   color: #A6A6A6;
 }
 
+.checkout-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: #8347EB;
+  border: none;
+  height: 45px;
+  border-radius: 5px;
+}
+.checkout-button-text {
+  font-size: 16px;
+  color: #FFF;
+}
+.checkout-button-arrow {
+  font-size: 20px;
+  color: #FFF;
+}
+
 .get-in-touch-container {
   display: flex;
   flex-wrap: wrap;
@@ -134,6 +154,41 @@
   margin: 0px;
 }
 
+.get-in-touch-elements-container {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.elements-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.get-in-touch-element-container {
+  width: 100%;
+  min-height: 70px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+.get-in-touch-element-label {
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+@media screen and (width > 600px) {
+  .get-in-touch-elements-container {
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .get-in-touch-card {
+    height: 300px;
+  }
+}
 
 @media screen and (width > 754px) {
   .form-get-in-touch-container {
@@ -141,7 +196,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    height: 650px;
+    height: 850px;
   }
 
   .form-container {
@@ -155,8 +210,12 @@
     width: 45%;
     height: 90%;
   }
+  .get-in-touch-elements-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .get-in-touch-card {
-    height: 90%;
+    height: 60%;
   }
 }
 
@@ -174,6 +233,16 @@
   }
   .get-in-touch-card {
     width: 80%;
+  }
+}
+
+@media screen and (width > 1260px) {
+  .get-in-touch-elements-container {
+    flex-direction: row;
+    align-items: center;
+  }
+  .get-in-touch-card {
+    height: 300px;
   }
 }
 
