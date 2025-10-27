@@ -120,10 +120,10 @@
   text-overflow: ellipsis;
 }
 .rating-container {
-  width: 136px;
+  width: 205px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 25px;
 }
 .stars-container {
   display: flex;
@@ -132,6 +132,13 @@
   gap: 5px;
   width: 95px;
   color: #FAB338;
+}
+.star {
+  font-size: 30px;
+  color: #d1d5db;
+}
+.star.filled {
+  color: #eab308;
 }
 .points-text {
   font-size: 16px;

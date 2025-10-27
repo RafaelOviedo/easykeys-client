@@ -1,24 +1,39 @@
+import { KeyboardsProvider } from '../providers/keyboards.provider.js';
+import { useSpinner } from '../composables/useSpinner.js';
 
-async function getKeyboardById(id) {
-  const response = await fetch('../resources/keyboards.json');
-  const keyboards = await response.json();
-  return keyboards.find(keyboard => keyboard.id === (+id));
+const { setIsLoading, removeIsLoading } = useSpinner();
+
+const HttpStatusCode = {
+  NOT_FOUND: 'NOT_FOUND',
 }
 
+const keyboardsProvider = KeyboardsProvider.getInstance();
+
 async function renderProductDetails() {
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get('id');
+  try {
+    setIsLoading('.image-content-container');
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
 
-  const keyboard = await getKeyboardById(id);
+    const keyboard = await keyboardsProvider.getKeyboardById(id);
 
-  if (!keyboard) {
-    throw new Error('This keyboard does not exist');
+    if (keyboard.error === HttpStatusCode.NOT_FOUND) {
+      throw new Error('This keyboard does not exist');
+    }
+
+    document.querySelector('.rating-container').innerHTML += `<ek-stars-rating value=${keyboard.fields.rating}></ek-stars-rating>`;
+    document.querySelector('.product-details-title').textContent = keyboard.fields.title;
+    document.querySelector('.product-details-description').textContent = keyboard.fields.description;
+    document.querySelector('.product-details-price').textContent = keyboard.fields.price;
+    document.querySelector('.points-text').textContent = `${keyboard.fields.rating} out of 5 stars`;
+    document.querySelector('.product-details-image').src = keyboard.fields.imageSrc;
   }
-
-  document.querySelector('.product-details-title').textContent = keyboard.title;
-  document.querySelector('.product-details-description').textContent = keyboard.description;
-  document.querySelector('.product-details-price').textContent = keyboard.price;
-  document.querySelector('.product-details-image').src = keyboard.imageSrc;
+  catch (error) {
+    throw new Error(error);
+  }
+  finally {
+    removeIsLoading();
+  }
 }
 
 renderProductDetails();
