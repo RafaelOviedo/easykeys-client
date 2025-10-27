@@ -20,14 +20,8 @@ export class ProductCard extends HTMLElement {
           <span class="product-title">${title}</span>
           <p class="product-description">${description}</p>
           <div class="rating-container">
-            <div class="stars-container">
-              <span>&#9733;</span>
-              <span>&#9733;</span>
-              <span>&#9733;</span>
-              <span>&#9733;</span>
-              <span>&#9733;</span>
-            </div>
-            <span class="points-text">(${rating})</span>
+            <ek-stars-rating value=${rating}></ek-stars-rating>
+            <span class="points-text">(${rating} out of 5)</span>
           </div>
           <div class="keyboard-specs-container">
             <span><b>Switches:</b> Outemu blue <br> <b>Layout:</b> (42 keys)</span>
