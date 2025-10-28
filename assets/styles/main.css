@@ -90,7 +90,7 @@ body {
   position: absolute;
   bottom: 22px;
   left: 28px;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   width: 18px;
@@ -98,6 +98,7 @@ body {
   border-radius: 50%;
   background-color: #E32000;
 }
+.show-cart-quantity-container { display: flex; }
 .cart-quantity {
   font-size: 11px;
   color: #FFFFFF;

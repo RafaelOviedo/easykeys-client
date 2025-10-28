@@ -1,6 +1,8 @@
 
 export class Navbar extends HTMLElement {
   renderNavbar() {
+    const cartQuantity = localStorage.getItem('cart-quantity');
+
     this.innerHTML = `
       <nav class="navbar">
         <div class="logo-container">
@@ -25,11 +27,15 @@ export class Navbar extends HTMLElement {
           <a class="cart-container" href="../../src/CartPage/CartPage.html">
             <img class="cart-image" src="../../assets/images/icon-cart.png" />
             <div class="cart-quantity-container">
-              <span class="cart-quantity">2</span>
+              <span class="cart-quantity">${cartQuantity}</span>
             </div>
           </a>
         </div>
-      </nav>`;
+      </nav>
+    `;
+
+    const cartQuantityContainer = this.querySelector('.cart-quantity-container');
+    cartQuantityContainer.classList.add('show-cart-quantity-container');
 
     this.querySelector('.burger-menu-container').addEventListener('click', () => {
       this.renderOpenNavbar();

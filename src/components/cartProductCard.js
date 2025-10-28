@@ -9,6 +9,7 @@ export class CartProductCard extends HTMLElement {
     const title = this.getAttribute('title');
     const description = this.getAttribute('description');
     const price = this.getAttribute('price');
+    const quantity = this.getAttribute('quantity');
 
     this.innerHTML = `
       <div class="cart-product-card-component">
@@ -26,7 +27,7 @@ export class CartProductCard extends HTMLElement {
         <div class="quantity-button-price-container">
           <div class="quantity-button-container">
             <button class="substract-button"><span>-</span></button>
-            <span class="product-quantity">1</span>
+            <span class="product-quantity">${quantity > 0 ? quantity : 0}</span>
             <button class="sum-button"><span>+</span></button>
           </div>
 
