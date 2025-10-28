@@ -72,6 +72,11 @@
 .cart-product-component-title {
   font-size: 22px;
   color: #FFF;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .delete-icon {
   width: 22px;
@@ -83,6 +88,11 @@
   color: #A6A6A6;
   font-size: 14px;
   margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-title {
@@ -96,7 +106,6 @@
   color: #A6A6A6;
   line-height: 20px;
 }
-
 .quantity-button-price-container {
   display: flex;
   justify-content: space-between;
@@ -185,11 +194,20 @@
   font-size: 16px;
 }
 
-.summary-container {
+.empty-cart-container {
+  height: 200px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.summary-container {
+  display: none;
   justify-content: center;
   gap: 20px;
   padding: 10px;
+}
+.show-summary-container {
+  display: flex;
 }
 .summary-box {
   display: flex;
@@ -293,6 +311,10 @@
   }
   .summary-box {
     width: 70%;
+  }
+
+  .empty-cart-container {
+    height: 300px;
   }
 }
 

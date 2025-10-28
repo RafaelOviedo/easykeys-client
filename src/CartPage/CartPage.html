@@ -19,20 +19,13 @@
       <span class="items-in-cart">2 items in your cart</span>
     </div>
 
-    <section class="cart-products-container">
-      <ek-cart-product-card
-        imageSrc="../../assets/images/keyboards-images/corne-mx.jpeg"
-        title="Corne MX RGB"
-        description="Affordable mechanical keyboard that doesn't compromise on quality..."
-        price="$129.99"
-      ></ek-cart-product-card>
+    <div class="spinner hidden"></div>
 
-      <ek-cart-product-card
-        imageSrc="../../assets/images/keyboards-images/3_corne_lp_front_1050x700.webp"
-        title="Corne LP"
-        description="Affordable mechanical keyboard that doesn't compromise on quality..."
-        price="$129.99"
-      ></ek-cart-product-card>
+    <section class="cart-products-container">
+    </section>
+
+    <section class="empty-cart-container">
+      <h3>Your cart is empty</h3>
     </section>
 
     <!-- <div class="clear-cart-button-container"> -->
@@ -79,6 +72,7 @@
     <ek-footer></ek-footer>
 
     <script type="module" src="../index.js"></script>
+    <script type="module" src="./CartPage.js"></script>
   </body>
 </html>
 
