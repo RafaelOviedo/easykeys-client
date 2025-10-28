@@ -144,6 +144,11 @@
   font-size: 18px;
   font-weight: bold;
   color: #FFF;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .product-description {
   margin: 0;

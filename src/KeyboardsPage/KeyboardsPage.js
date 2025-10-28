@@ -1,7 +1,10 @@
 import { KeyboardsProvider } from '../providers/keyboards.provider.js';
+import { CartProvider } from "../providers/cart.provider.js";
 import { useSpinner } from '../composables/useSpinner.js';
+import { createProductCard } from './helpers.js';
 
 const keyboardsProvider = KeyboardsProvider.getInstance();
+const cartProvider = CartProvider.getInstance();
 
 const { setIsLoading, removeIsLoading } = useSpinner();
 
@@ -24,20 +27,26 @@ const resultsTitle = document.querySelector('.results-title');
 resultsTitle.textContent = `Showing ${keyboards.records.length} results`
 
 keyboards.records.forEach((keyboard) => {
-  const keyboardElement = document.createElement('ek-product-card');
-  keyboardElement.setAttribute('imageSrc', keyboard.fields.imageSrc);
-  keyboardElement.setAttribute('title', keyboard.fields.title);
-  keyboardElement.setAttribute('description', keyboard.fields.description);
-  keyboardElement.setAttribute('price', keyboard.fields.price);
-  keyboardElement.setAttribute('rating', keyboard.fields.rating);
+  const productCard = createProductCard(keyboardsContainer, keyboard, 'ek-product-card')
 
-  keyboardsContainer.appendChild(keyboardElement);
-
-  const imageContainer = keyboardElement.children[0].children[0];
+  const imageContainer = productCard.querySelector('.product-component-image-container');
+  const addToCartButton = productCard.querySelector('.add-to-cart-button');
 
   imageContainer.addEventListener('click', () => {
     window.location.href = `../ProductDetails/ProductDetails.html?id=${keyboard.id}`;
   });
+
+  addToCartButton.addEventListener('click', async () => {
+    await cartProvider.addProductToCart({
+      imageSrc: keyboard.fields.imageSrc,
+      title: keyboard.fields.title,
+      description: keyboard.fields.description,
+      price: keyboard.fields.price,
+      rating: keyboard.fields.rating,
+      category: keyboard.fields.category,
+      quantity: 1
+    })
+  })
 });
 
 
