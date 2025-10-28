@@ -1,0 +1,31 @@
+import { BaseProvider } from './base.provider.js'
+
+export class CartProvider extends BaseProvider {
+  static instance;
+
+  constructor() {
+    super();
+  }
+
+  static getInstance() {
+    if (!this.instance) {
+      this.instance = new CartProvider();
+    }
+    return this.instance;
+  }
+
+  async getCartProducts() {
+    return await this.fetchInstance('cart');
+  }
+
+  async addProductToCart(product) {
+    return await this.fetchInstance('cart', {
+      method: 'POST',
+      body: JSON.stringify({ fields: product })
+    })
+  }
+
+  async deleteProductFromCart(id) {
+    return await this.fetchInstance(`cart/${id}`, { method: 'DELETE' })
+  }
+}
