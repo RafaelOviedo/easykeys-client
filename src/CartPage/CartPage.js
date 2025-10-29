@@ -1,6 +1,7 @@
 import { CartProvider } from '../providers/cart.provider.js';
 
 import { useSpinner } from '../composables/useSpinner.js';
+
 import { createCartProductCard } from './helpers.js';
 import { formatNumber } from '../utils/formatNumber.js';
 
@@ -11,6 +12,8 @@ const cartProvider = CartProvider.getInstance();
 const { setIsLoading, removeIsLoading } = useSpinner();
 
 const cartProductsContainer = document.querySelector('.cart-products-container')
+
+const cartItemsQuantity = document.querySelector('.items-in-cart');
 
 let cartProducts;
 
@@ -49,7 +52,8 @@ async function getCartProducts() {
     throw new Error(error);
   }
   finally {
-    removeIsLoading('.cart-products-container');
+    removeIsLoading();
+    cartItemsQuantity.textContent = `${cartProducts.records.length ?? 0} items in your cart`
   }
 }
 

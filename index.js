@@ -1,42 +1,68 @@
 import { KeyboardsProvider } from './src/providers/keyboards.provider.js';
+import { CartProvider } from './src/providers/cart.provider.js';
 import { useSpinner } from './src/composables/useSpinner.js';
+
+import { createProductCard } from './src/KeyboardsPage/helpers.js';
 
 const { setIsLoading, removeIsLoading } = useSpinner();
 
 const keyboardsProvider = KeyboardsProvider.getInstance();
-
-let keyboards;
-
-try {
-  setIsLoading('.product-cards-container')
-  keyboards = await keyboardsProvider.getKeyboards();
-}
-catch (error) {
-  throw new Error(error);
-}
-finally {
-  removeIsLoading()
-}
+const cartProvider = CartProvider.getInstance();
 
 const keyboardsContainer = document.querySelector('.product-cards-container');
 
-keyboards.records
-  .filter((element) => element.fields.rating === 5)
-  .forEach((keyboard) => {
-    const keyboardElement = document.createElement('ek-product-card');
-    keyboardElement.setAttribute('imageSrc', keyboard.fields.imageSrc);
-    keyboardElement.setAttribute('title', keyboard.fields.title);
-    keyboardElement.setAttribute('description', keyboard.fields.description);
-    keyboardElement.setAttribute('price', keyboard.fields.price);
-    keyboardElement.setAttribute('rating', keyboard.fields.rating);
+let keyboards;
 
-    keyboardsContainer.appendChild(keyboardElement);
+async function renderMainKeyboards() {
+  keyboards.records
+    .filter((element) => element.fields.rating === 5)
+    .forEach((keyboard) => {
+      const productCard = createProductCard(keyboardsContainer, keyboard, 'ek-product-card')
 
-    const imageContainer = keyboardElement.children[0].children[0];
+      const imageContainer = productCard.querySelector('.product-component-image-container');
+      const addToCartButton = productCard.querySelector('.add-to-cart-button');
 
-    imageContainer.addEventListener('click', () => {
-      window.location.href = `./src/ProductDetails/ProductDetails.html?id=${keyboard.id}`;
+      imageContainer.addEventListener('click', () => {
+        window.location.href = `./src/ProductDetails/ProductDetails.html?id=${keyboard.id}`;
+      });
+
+      addToCartButton.addEventListener('click', () => addToCart(keyboard));
     });
-  });
+}
 
+async function getMainKeyboards() {
+  try {
+    setIsLoading('.product-cards-container')
+    keyboards = await keyboardsProvider.getKeyboards();
 
+    renderMainKeyboards();
+  }
+  catch (error) {
+    throw new Error(error);
+  }
+  finally {
+    removeIsLoading()
+  }
+}
+
+async function addToCart(keyboard) {
+  await cartProvider.addProductToCart({
+    imageSrc: keyboard.fields.imageSrc,
+    title: keyboard.fields.title,
+    description: keyboard.fields.description,
+    price: keyboard.fields.price,
+    rating: keyboard.fields.rating,
+    category: keyboard.fields.category,
+    quantity: 1
+  })
+
+  addToLocalStorage();
+}
+
+function addToLocalStorage() {
+  const cartQuantity = JSON.parse(document.querySelector('.cart-quantity').textContent);
+  const updatedCartQuantity = document.querySelector('.cart-quantity').textContent = cartQuantity + 1;
+  localStorage.setItem('cart-quantity', updatedCartQuantity);
+}
+
+getMainKeyboards();

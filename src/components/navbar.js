@@ -27,7 +27,7 @@ export class Navbar extends HTMLElement {
           <a class="cart-container" href="../../src/CartPage/CartPage.html">
             <img class="cart-image" src="../../assets/images/icon-cart.png" />
             <div class="cart-quantity-container">
-              <span class="cart-quantity">${cartQuantity}</span>
+              <span class="cart-quantity">${cartQuantity ?? 0}</span>
             </div>
           </a>
         </div>
