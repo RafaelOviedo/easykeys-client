@@ -10,5 +10,5 @@ export function createProductCard(container, resource, element) {
 
   container.appendChild(productCard);
 
-  return productCard
+  return productCard;
 }
