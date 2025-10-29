@@ -1,3 +1,3 @@
-export const BASE_API_URL = import.meta.env.VITE_BASE_API_URL;
-export const API_TOKEN = import.meta.env.VITE_API_TOKEN;
+export const BASE_API_URL = 'https://api.airtable.com/v0/appyvb9np6hHz16DN';
+export const API_TOKEN = 'patr5Xk9FxYInn9mh.8eab021cc9691d238aa71430bfa8977b514355c5540cc493441b34a82bdf7a28';
 
