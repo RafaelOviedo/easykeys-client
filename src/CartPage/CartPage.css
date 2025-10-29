@@ -238,17 +238,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .data-label {
+    font-size: 16px;
+  }
 }
 .subtotal-value-text {
   color: #FFF;
+  font-size: 18px;
   font-weight: bold;
 }
 .shipping-value-text {
   color: #35E375;
+  font-size: 18px;
   font-weight: bold;
 }
 .tax-value-text {
   color: #FFF;
+  font-size: 18px;
+  font-weight: bold;
+}
+.total-value-text {
+  color: #FFF;
+  font-size: 20px;
   font-weight: bold;
 }
 

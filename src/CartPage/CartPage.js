@@ -2,6 +2,9 @@ import { CartProvider } from '../providers/cart.provider.js';
 
 import { useSpinner } from '../composables/useSpinner.js';
 import { createCartProductCard } from './helpers.js';
+import { formatNumber } from '../utils/formatNumber.js';
+
+const TAX_VALUE = 18.40;
 
 const cartProvider = CartProvider.getInstance();
 
@@ -28,6 +31,8 @@ async function getCartProducts() {
     document.querySelector('.empty-cart-container').classList.add('hidden')
 
     cartProducts = await cartProvider.getCartProducts();
+
+    setSummaryTotal();
     localStorage.setItem('cart-quantity', cartProducts.records.length);
 
     if (cartProducts.records.length) {
@@ -63,6 +68,12 @@ function removeFromLocalStorage() {
   const cartQuantity = JSON.parse(document.querySelector('.cart-quantity').textContent);
   const updatedCartQuantity = document.querySelector('.cart-quantity').textContent = cartQuantity - 1;
   localStorage.setItem('cart-quantity', updatedCartQuantity);
+}
+
+function setSummaryTotal() {
+  const totalSummaryOrder = cartProducts.records.reduce((acc, el, _arr) => acc + el.fields.price, 0);
+  document.querySelector('.subtotal-value-text').textContent = formatNumber(totalSummaryOrder);
+  document.querySelector('.total-value-text').textContent = formatNumber(totalSummaryOrder + TAX_VALUE);
 }
 
 await getCartProducts();
