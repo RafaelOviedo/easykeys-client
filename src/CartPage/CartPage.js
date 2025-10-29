@@ -4,6 +4,7 @@ import { useSpinner } from '../composables/useSpinner.js';
 
 import { createCartProductCard } from './helpers.js';
 import { formatNumber } from '../utils/formatNumber.js';
+import { removeFromLocalStorage } from '../helpers/handleLocalStorage.js';
 
 const TAX_VALUE = 18.40;
 
@@ -66,12 +67,6 @@ async function deleteProduct(product) {
   removeFromLocalStorage();
 
   removeIsLoading();
-}
-
-function removeFromLocalStorage() {
-  const cartQuantity = JSON.parse(document.querySelector('.cart-quantity').textContent);
-  const updatedCartQuantity = document.querySelector('.cart-quantity').textContent = cartQuantity - 1;
-  localStorage.setItem('cart-quantity', updatedCartQuantity);
 }
 
 function setSummaryTotal() {

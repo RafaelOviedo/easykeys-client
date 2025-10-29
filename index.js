@@ -3,6 +3,7 @@ import { CartProvider } from './src/providers/cart.provider.js';
 import { useSpinner } from './src/composables/useSpinner.js';
 
 import { createProductCard } from './src/KeyboardsPage/helpers.js';
+import { addToLocalStorage } from './src/helpers/handleLocalStorage.js';
 
 const { setIsLoading, removeIsLoading } = useSpinner();
 
@@ -57,12 +58,6 @@ async function addToCart(keyboard) {
   })
 
   addToLocalStorage();
-}
-
-function addToLocalStorage() {
-  const cartQuantity = JSON.parse(document.querySelector('.cart-quantity').textContent);
-  const updatedCartQuantity = document.querySelector('.cart-quantity').textContent = cartQuantity + 1;
-  localStorage.setItem('cart-quantity', updatedCartQuantity);
 }
 
 getMainKeyboards();

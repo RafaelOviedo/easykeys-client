@@ -1,7 +1,10 @@
 import { KeyboardsProvider } from '../providers/keyboards.provider.js';
 import { CartProvider } from "../providers/cart.provider.js";
+
 import { useSpinner } from '../composables/useSpinner.js';
+
 import { createProductCard } from './helpers.js';
+import { addToLocalStorage } from '../helpers/handleLocalStorage.js';
 
 const keyboardsProvider = KeyboardsProvider.getInstance();
 const cartProvider = CartProvider.getInstance();
@@ -56,12 +59,6 @@ async function addToCart(keyboard) {
   })
 
   addToLocalStorage();
-}
-
-function addToLocalStorage() {
-  const cartQuantity = JSON.parse(document.querySelector('.cart-quantity').textContent);
-  const updatedCartQuantity = document.querySelector('.cart-quantity').textContent = cartQuantity + 1;
-  localStorage.setItem('cart-quantity', updatedCartQuantity);
 }
 
 await getKeyboards();
