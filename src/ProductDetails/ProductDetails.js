@@ -35,6 +35,7 @@ async function getProductDetails() {
     keyboard = await keyboardsProvider.getKeyboardById(id);
 
     if (keyboard.error === HttpStatusCode.NOT_FOUND) {
+      window.location.href = '../NotFound/404.html';
       throw new Error('This keyboard does not exist');
     }
 

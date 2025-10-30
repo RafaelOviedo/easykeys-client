@@ -44,7 +44,7 @@ export class EditProductCard extends HTMLElement {
           padding: 5px;
 
           .edit-product-component-image-container {
-            width: 100px;
+            width: 120px;
             height: 100%;
 
             .edit-product-component-image {
