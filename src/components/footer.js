@@ -37,6 +37,7 @@ export class Footer extends HTMLElement {
         <div class="divider"></div>
 
         <span class="reserved-rights-text">© 2025 EasyKeys. All rights reserved. Built with passion for mechanical keyboards.</span>
+        <a class="go-to-admin-panel" href="../../src/AdminPage/AdminPage.html">Go to Admin Panel</a>
       </footer>`;
   }
 }
