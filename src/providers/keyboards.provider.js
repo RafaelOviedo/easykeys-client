@@ -25,4 +25,8 @@ export class KeyboardsProvider extends BaseProvider {
   async createKeyboard(body) {
     return await this.fetchInstance('keyboards', { method: 'POST', body: JSON.stringify(body) })
   }
+
+  async deleteKeyboard(id) {
+    return await this.fetchInstance(`keyboards/${id}`, { method: 'DELETE' })
+  }
 }

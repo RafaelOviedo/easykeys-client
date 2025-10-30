@@ -22,7 +22,7 @@ export class EditProductCard extends HTMLElement {
           <span class="price-text">${price}</span>
         </div>
 
-        <div class="pencil-icon-container">
+        <div class="pencil-delete-icon-container">
           <div class="pencil-icon-wrapper">
             <img class="pencil-icon" src="../../assets/images/pencil-icon.png" />
           </div>
@@ -84,7 +84,7 @@ export class EditProductCard extends HTMLElement {
             }
           }
 
-          .pencil-icon-container {
+          .pencil-delete-icon-container {
             display: flex;
             flex-direction: column;
             align-items: flex-start;

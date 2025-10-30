@@ -1,4 +1,8 @@
 import { KeyboardsProvider } from '../providers/keyboards.provider.js';
+import { useSpinner } from '../composables/useSpinner.js';
+import { getKeyboards } from './ExistingProducts.js';
+
+const { setIsLoading, removeIsLoading } = useSpinner();
 
 const keyboardsProvider = KeyboardsProvider.getInstance();
 
@@ -37,7 +41,10 @@ function onFormChange() {
 }
 
 async function onSubmit() {
+  setIsLoading('.product-cards-container');
   await keyboardsProvider.createKeyboard(productBody);
+  await getKeyboards();
+  removeIsLoading();
 }
 
 function cleanForm() {
