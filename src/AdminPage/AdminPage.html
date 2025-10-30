@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="./AdminPage.css" rel="stylesheet">
+    <link href="../../assets/styles/main.css" rel="stylesheet">
+  </head>
+  <body class="body">
+    <ek-navbar></ek-navbar>
+
+    <div class="admin-title-container">
+      <span class="admin-title">Admin panel</span>
+    </div>
+
+    <div class="spinner hidden"></div>
+
+    <div class="form-and-edit-products-container">
+      <div class="form-container">
+        <form class="contact-form-container">
+          <h1 class="contact-form-title">Create a new product</h1>
+
+          <div class="input-container">
+            <label>Title</label>
+            <input class="text-input" name="title" type="text" placeholder="Product title..." />
+          </div>
+
+          <div class="input-container">
+            <label>Price</label>
+            <input class="text-input" name="price" type="number" placeholder="Product price..." />
+          </div>
+
+          <div class="input-container">
+            <label>Image URL</label>
+            <input class="text-input" name="imageSrc" type="text" placeholder="Product image url..." />
+          </div>
+
+          <div class="input-container">
+            <label>Category</label>
+            <input class="text-input" name="category" type="text" placeholder="Product category..." />
+          </div>
+
+          <div class="input-container">
+            <label>Rating</label>
+            <input class="text-input" name="rating" type="text" placeholder="Product rating..." />
+          </div>
+
+          <div class="textarea-container">
+            <label>Description</label>
+            <textarea class="textarea-input" name="description"></textarea>
+          </div>
+
+          <button class="checkout-button">
+            <span class="checkout-button-text">Create</span>
+            <span class="checkout-button-arrow">&#8594;</span>
+          </button>
+        </form>
+      </div>
+
+      <section class="product-cards-container">
+
+      </section>
+    </div>
+
+
+    <ek-footer></ek-footer>
+
+    <script type="module" src="../index.js"></script>
+    <script type="module" src="./AdminPage.js"></script>
+  </body>
+</html>
