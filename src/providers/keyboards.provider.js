@@ -22,4 +22,7 @@ export class KeyboardsProvider extends BaseProvider {
     return await this.fetchInstance(`keyboards/${id}`);
   }
 
+  async createKeyboard(body) {
+    return await this.fetchInstance('keyboards', { method: 'POST', body: JSON.stringify(body) })
+  }
 }
