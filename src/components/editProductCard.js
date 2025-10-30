@@ -26,6 +26,10 @@ export class EditProductCard extends HTMLElement {
           <div class="pencil-icon-wrapper">
             <img class="pencil-icon" src="../../assets/images/pencil-icon.png" />
           </div>
+
+          <div class="delete-icon-wrapper">
+            <img class="delete-icon" src="../../assets/images/delete-icon.png" />
+          </div>
         </div>
       </div>
 
@@ -63,6 +67,11 @@ export class EditProductCard extends HTMLElement {
               color: #FFF;
               font-size: 16px;
               font-weight: 600;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
             .edit-product-category {
               font-size: 15px;
@@ -77,12 +86,13 @@ export class EditProductCard extends HTMLElement {
 
           .pencil-icon-container {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: flex-start;
-            width: 10%;
+            gap: 5px;
+            width: 40px;
             height: 100%;
 
-            .pencil-icon-wrapper {
+            .pencil-icon-wrapper, .delete-icon-wrapper {
               width: 100%;
               height: 35%;
               display: flex;
@@ -92,7 +102,7 @@ export class EditProductCard extends HTMLElement {
               border-radius: 5px;
               cursor: pointer;
 
-              .pencil-icon {
+              .pencil-icon, .delete-icon {
                 width: 20px;
                 height: 20px;
               }
