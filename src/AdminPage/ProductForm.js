@@ -18,7 +18,7 @@ let productBody = {
 }
 
 const form = document.querySelector('.contact-form-container')
-const submitButton = document.querySelector('.checkout-button');
+const submitButton = document.querySelector('.submit-button');
 
 submitButton.addEventListener('click', async (event) => {
   event.preventDefault();
@@ -42,6 +42,13 @@ function onFormChange() {
 
 async function onSubmit() {
   setIsLoading('.product-cards-container');
+  const isValidForm = validateForm();
+
+  if (!isValidForm) {
+    removeIsLoading();
+    return;
+  }
+
   await keyboardsProvider.createKeyboard(productBody);
   await getKeyboards();
   removeIsLoading();
@@ -50,6 +57,20 @@ async function onSubmit() {
 function cleanForm() {
   form.querySelectorAll('input').forEach(input => input.value = '');
   form.querySelector('textarea').value = '';
+}
+
+function validateForm() {
+  if (productBody.fields.title === '' ||
+    productBody.fields.price === 0 ||
+    productBody.fields.imageSrc === '' ||
+    productBody.fields.category === '' ||
+    productBody.fields.rating === 0 ||
+    productBody.fields.description === ''
+  ) {
+    return false;
+  }
+
+  return true;
 }
 
 onFormChange();

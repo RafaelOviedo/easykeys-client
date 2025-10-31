@@ -1,4 +1,5 @@
 import { BaseProvider } from './base.provider.js'
+import { HttpMethods } from './constants.js';
 
 export class CartProvider extends BaseProvider {
   static instance;
@@ -26,6 +27,6 @@ export class CartProvider extends BaseProvider {
   }
 
   async deleteProductFromCart(id) {
-    return await this.fetchInstance(`cart/${id}`, { method: 'DELETE' })
+    return await this.fetchInstance(`cart/${id}`, { method: HttpMethods.DELETE })
   }
 }
