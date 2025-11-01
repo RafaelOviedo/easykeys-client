@@ -14,6 +14,7 @@ const { setIsLoading, removeIsLoading } = useSpinner();
 const keyboardsContainer = document.querySelector('.product-cards-container');
 const resultsTitle = document.querySelector('.results-title');
 const searchInput = document.querySelector('.search-input');
+const selectInput = document.querySelector('.filter-select')
 
 let keyboards;
 
@@ -74,6 +75,34 @@ function filterBySearch() {
   })
 }
 
+function filterByOption() {
+  selectInput.addEventListener('change', (event) => {
+    const { value } = event.target;
+    let filteredKeyboards;
+
+    keyboardsContainer.innerHTML = '';
+
+    filteredKeyboards = keyboards.records.filter((keyboard) => keyboard.fields.category === value);
+
+    if (value === 'name-a-z') {
+      filteredKeyboards = keyboards.records.sort((a, b) => { return a.fields.title > b.fields.title ? 1 : -1 });
+    }
+
+    if (value === 'price-low-to-high') {
+      filteredKeyboards = keyboards.records.sort((a, b) => { return a.fields.price > b.fields.price ? 1 : -1 });
+    }
+
+    renderKeyboards(filteredKeyboards);
+
+    if (value === '') {
+      renderKeyboards(keyboards.records);
+    }
+
+    resultsTitle.textContent = `Showing ${filteredKeyboards.length ?? 0} results`
+  })
+}
+
 await getKeyboards();
 filterBySearch();
+filterByOption();
 
