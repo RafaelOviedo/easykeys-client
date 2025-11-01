@@ -67,7 +67,9 @@
   border-radius: 8px;
   color: #A6A6A6;
 }
-
+.search-input:focus {
+  outline: 2px solid #8347EB;
+}
 
 .filter-box {
   display: flex;
@@ -88,6 +90,15 @@
   border: 1px solid #2B303B;
   border-radius: 8px;
   color: #A6A6A6;
+}
+.filter-select:focus {
+  outline: 2px solid #8347EB;
+}
+option {
+  background-color: #101318;
+  color: #A6A6A6;
+  padding: 10px;
+  font-size: 17px;
 }
 
 .results-title-container {
