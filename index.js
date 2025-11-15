@@ -1,11 +1,14 @@
 import { KeyboardsProvider } from './src/providers/keyboards.provider.js';
 import { CartProvider } from './src/providers/cart.provider.js';
+
 import { useSpinner } from './src/composables/useSpinner.js';
+import { useToast } from './src/composables/useToast.js';
 
 import { createProductCard } from './src/KeyboardsPage/helpers.js';
 import { addToLocalStorage } from './src/helpers/handleLocalStorage.js';
 
 const { setIsLoading, removeIsLoading } = useSpinner();
+const { showToast } = useToast();
 
 const keyboardsProvider = KeyboardsProvider.getInstance();
 const cartProvider = CartProvider.getInstance();
@@ -56,6 +59,8 @@ async function addToCart(keyboard) {
     category: keyboard.fields.category,
     quantity: 1
   })
+
+  showToast(`Tu teclado ${keyboard.fields.title} se agregó al carrito`)
 
   addToLocalStorage();
 }
