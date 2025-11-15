@@ -1,6 +1,7 @@
 import { CartProvider } from '../providers/cart.provider.js';
 
 import { useSpinner } from '../composables/useSpinner.js';
+import { useToast } from '../composables/useToast.js';
 
 import { createCartProductCard } from './helpers.js';
 import { formatNumber } from '../utils/formatNumber.js';
@@ -11,6 +12,7 @@ const TAX_VALUE = 18.40;
 const cartProvider = CartProvider.getInstance();
 
 const { setIsLoading, removeIsLoading } = useSpinner();
+const { showToast } = useToast();
 
 const cartProductsContainer = document.querySelector('.cart-products-container')
 
@@ -28,8 +30,8 @@ function renderCartProducts() {
     const substractButton = cartProductCard.querySelector('.substract-button');
 
     deleteIcon.addEventListener('click', () => deleteProduct(product));
-    sumButton.addEventListener('click', () => icreaseProductQuantity(product.id, product.fields.quantity));
-    substractButton.addEventListener('click', () => decreaseProductQuantity(product.id, product.fields.quantity));
+    sumButton.addEventListener('click', () => icreaseProductQuantity(product.id, product.fields.title, product.fields.quantity));
+    substractButton.addEventListener('click', () => decreaseProductQuantity(product.id, product.fields.title, product.fields.quantity));
   });
 }
 
@@ -68,24 +70,27 @@ async function deleteProduct(product) {
   await cartProvider.deleteProductFromCart(product.id);
   await getCartProducts();
 
-  removeFromLocalStorage();
+  showToast(`Tu teclado ${product.fields.title} se eliminó correctamente`);
 
+  removeFromLocalStorage();
   removeIsLoading();
 }
 
-async function icreaseProductQuantity(id, quantity) {
+async function icreaseProductQuantity(id, title, quantity) {
   setIsLoading('.cart-products-container')
 
   await cartProvider.updateCartKeyboard(id, { fields: { quantity: quantity + 1 } })
   await getCartProducts();
 
+  showToast(`Sumaste 1 a tu teclado ${title}`);
+
   removeIsLoading();
   renderCartProducts();
 }
 
-async function decreaseProductQuantity(id, quantity) {
+async function decreaseProductQuantity(id, title, quantity) {
   if (quantity === 1) {
-    // showToast('No puedes seleccionar menos de un teclado');
+    showToast('No puedes seleccionar menos de un teclado', 'error');
     return;
   }
 
@@ -94,12 +99,14 @@ async function decreaseProductQuantity(id, quantity) {
   await cartProvider.updateCartKeyboard(id, { fields: { quantity: quantity - 1 } })
   await getCartProducts();
 
+  showToast(`Restaste 1 a tu teclado ${title}`);
+
   removeIsLoading();
   renderCartProducts();
 }
 
 function setSummaryTotal() {
-  const totalSummaryOrder = cartProducts.records.reduce((acc, el, _arr) => acc + el.fields.price, 0);
+  const totalSummaryOrder = cartProducts.records.reduce((acc, el, _arr) => acc + (el.fields.price * el.fields.quantity), 0);
   document.querySelector('.subtotal-value-text').textContent = formatNumber(totalSummaryOrder);
   document.querySelector('.total-value-text').textContent = formatNumber(totalSummaryOrder + TAX_VALUE);
 }

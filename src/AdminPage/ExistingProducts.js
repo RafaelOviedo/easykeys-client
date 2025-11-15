@@ -1,9 +1,11 @@
 import { KeyboardsProvider } from '../providers/keyboards.provider.js';
-
-import { useSpinner } from '../composables/useSpinner.js';
 import { createEditProductCard } from './helpers.js';
 
+import { useSpinner } from '../composables/useSpinner.js';
+import { useToast } from '../composables/useToast.js';
+
 const { setIsLoading, removeIsLoading } = useSpinner();
+const { showToast } = useToast();
 
 let updateProductBody = {
   fields: {
@@ -66,15 +68,43 @@ async function deleteKeyboard(id) {
   setIsLoading('.product-cards-container');
   await keyboardsProvider.deleteKeyboard(id);
   await getKeyboards();
+
+  showToast(`El teclado se eliminó de la lista correctamente`)
   removeIsLoading();
 }
 
 async function onSubmitUpdate() {
   setIsLoading('.product-cards-container');
+
+  const isValidForm = validateForm();
+
+  if (!isValidForm) {
+    removeIsLoading();
+    return;
+  }
+
   await keyboardsProvider.updateKeyboard(currentKeyboardEditId, updateProductBody);
   await getKeyboards();
+
+  showToast(`Tu teclado se modificó correctamente`);
+
   removeIsLoading();
   return;
+}
+
+function validateForm() {
+  if (updateProductBody.fields.title === '' ||
+    updateProductBody.fields.price === 0 ||
+    updateProductBody.fields.imageSrc === '' ||
+    updateProductBody.fields.category === '' ||
+    updateProductBody.fields.rating === 0 ||
+    updateProductBody.fields.description === ''
+  ) {
+    showToast('Completa todos los campos para modificar un teclado', 'error');
+    return false;
+  }
+
+  return true;
 }
 
 function editKeyboard(keyboard) {

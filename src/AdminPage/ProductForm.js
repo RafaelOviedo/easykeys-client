@@ -1,8 +1,11 @@
 import { KeyboardsProvider } from '../providers/keyboards.provider.js';
-import { useSpinner } from '../composables/useSpinner.js';
 import { getKeyboards } from './ExistingProducts.js';
 
+import { useSpinner } from '../composables/useSpinner.js';
+import { useToast } from '../composables/useToast.js';
+
 const { setIsLoading, removeIsLoading } = useSpinner();
+const { showToast } = useToast();
 
 const keyboardsProvider = KeyboardsProvider.getInstance();
 
@@ -51,6 +54,9 @@ async function onSubmit() {
 
   await keyboardsProvider.createKeyboard(productBody);
   await getKeyboards();
+
+  showToast(`Tu teclado ${productBody.fields.title} se creó correctamente`);
+
   removeIsLoading();
 }
 
@@ -67,6 +73,7 @@ function validateForm() {
     productBody.fields.rating === 0 ||
     productBody.fields.description === ''
   ) {
+    showToast('Completa todos los campos para crear un teclado', 'error');
     return false;
   }
 

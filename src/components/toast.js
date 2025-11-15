@@ -10,7 +10,7 @@ export class Toast extends HTMLElement {
         .toast-container {
           width: 100%;
           position: fixed;
-          bottom: 25px;
+          bottom: 35px;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -28,6 +28,7 @@ export class Toast extends HTMLElement {
           font-weight: 600;
           opacity: 0;
           transition: opacity 0.3s ease, transform 0.3s ease;
+          text-align: center;
         }
 
         .toast.show {
@@ -41,6 +42,12 @@ export class Toast extends HTMLElement {
 
         .toast-text {
           font-weight: 600;
+        }
+
+        @media screen and (width < 768px) {
+          .toast {
+            width: 85%;
+          }
         }
       </style>
 
