@@ -29,4 +29,8 @@ export class CartProvider extends BaseProvider {
   async deleteProductFromCart(id) {
     return await this.fetchInstance(`cart/${id}`, { method: HttpMethods.DELETE })
   }
+
+  async updateCartKeyboard(id, body) {
+    return await this.fetchInstance(`cart/${id}`, { method: HttpMethods.PATCH, body: JSON.stringify(body) })
+  }
 }

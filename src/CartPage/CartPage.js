@@ -24,8 +24,12 @@ function renderCartProducts() {
   cartProducts.records.forEach(product => {
     const cartProductCard = createCartProductCard(cartProductsContainer, product, 'ek-cart-product-card');
     const deleteIcon = cartProductCard.querySelector('.delete-icon');
+    const sumButton = cartProductCard.querySelector('.sum-button');
+    const substractButton = cartProductCard.querySelector('.substract-button');
 
     deleteIcon.addEventListener('click', () => deleteProduct(product));
+    sumButton.addEventListener('click', () => icreaseProductQuantity(product.id, product.fields.quantity));
+    substractButton.addEventListener('click', () => decreaseProductQuantity(product.id, product.fields.quantity));
   });
 }
 
@@ -67,6 +71,31 @@ async function deleteProduct(product) {
   removeFromLocalStorage();
 
   removeIsLoading();
+}
+
+async function icreaseProductQuantity(id, quantity) {
+  setIsLoading('.cart-products-container')
+
+  await cartProvider.updateCartKeyboard(id, { fields: { quantity: quantity + 1 } })
+  await getCartProducts();
+
+  removeIsLoading();
+  renderCartProducts();
+}
+
+async function decreaseProductQuantity(id, quantity) {
+  if (quantity === 1) {
+    // showToast('No puedes seleccionar menos de un teclado');
+    return;
+  }
+
+  setIsLoading('.cart-products-container')
+
+  await cartProvider.updateCartKeyboard(id, { fields: { quantity: quantity - 1 } })
+  await getCartProducts();
+
+  removeIsLoading();
+  renderCartProducts();
 }
 
 function setSummaryTotal() {
